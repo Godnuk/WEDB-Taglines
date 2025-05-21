@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WEDB Tagline Generator</title>
+
+  <!-- Styling for the Tagline display box -->
+  <style>
+    body {
+      background-color: #1a1a1a; /* Dark background */
+      color: #A0FFB8; /* Bright green text */
+      font-family: 'Courier New', monospace; /* Retro radio-style font */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #taglineBox {
+      background-color: #1a1a1a;
+      padding: 25px;
+      font-size: 1.5rem;
+      text-align: center;
+      border: 3px dashed #00FF88; /* Dashed border to feel a little oddball */
+      border-radius: 10px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 12px #00FF88, inset 0 0 8px #003311;
+      animation: flicker 2s infinite alternate; /* Flicker animation */
+    }
+
+    @keyframes flicker {
+      0%   { opacity: 0.97; text-shadow: 0 0 2px #00FF88, 0 0 5px #00FF88; }
+      100% { opacity: 1;   text-shadow: 0 0 4px #00FF88, 0 0 8px #00FF88; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main box where the taglines will appear -->
+  <div id="taglineBox">Loading WEDB tagline...</div>
+
+  <!-- JavaScript for rotating taglines -->
+  <script>
+    // List of WEDB taglines — edit or expand this array as needed
+    const taglines = [
+      "Weird, Wild, and Weather-Worn. WEDB 98.9 FM",
+      "WEDB 98.9 FM - Elderbush’s Only Legal Frequency - Take That, WCWD.",
+      "WEDB 98.9 FM - Because Something's Always Happening",
+      "Seven counties. One unmarked van that never parks. Always listening. WEDB 98.9 FM",
+      "Broadcasting in the Key of Strange. WEDB 98.9 FM",
+      "It’s 98.9… or it’s nothing. WEDB",
+      "WEDB 98.9 FM - Static never sounded so clear.",
+      "From Elderbush to the edge of reason. WEDB 98.9 FM",
+      "WEDB 98.9 FM - Warning: May Cause Enlightened Confusion.",
+      "Stay tuned. Or else. WEDB 98.9 FM",
+      "The lightning came. The voices stayed. WEDB 98.9 FM",
+      "She hears you. Even now. WEDB 98.9 FM",
+      "WEDB - Stronger than most marriages around here. 98.9 FM",
+      "All roads lead to 98.9 FM, WEDB.",
+      "You weren’t meant to hear this… but you are. WEDB 98.9 FM",
+      "WEDB 98.9 FM - The station your radio finds by itself.",
+      "Elderbush's background noise...until it's not. WEDB 98.9 FM",
+      "WEDB 98.9 FM - If you're hearing this, you're complicit.",
+      "WEDB 98.9 FM - Thankfully, your tax dollars are not paying for this.",
+      "Still awaiting local council approval, but not holding our breath. WEDB 98.9 FM",
+      "Reaching 7 counties and one possibly sentient water tower. WEDB 98.9 FM",
+      "WEDB 98.9 FM - Heard in 7 counties and whispered from the storm drain on Herman Road",
+      "Covering Elderbush Township and other areas that never signed up for this. WEDB 98.9 FM",
+    ];
+
+    // Function to update the tagline at random intervals
+    function updateTagline() {
+      // Select a random tagline
+      const tagline = taglines[Math.floor(Math.random() * taglines.length)];
+
+      // Update the tagline box text
+      document.getElementById("taglineBox").innerText = tagline;
+
+      // Pick a new random interval (10–30 seconds) before changing again
+      const nextUpdate = Math.floor(Math.random() * (30000 - 10000 + 1)) + 10000;
+      setTimeout(updateTagline, nextUpdate);
+    }
+
+    // Start the tagline rotation
+    updateTagline();
+  </script>
+</body>
+</html>
